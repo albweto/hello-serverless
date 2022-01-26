@@ -8,9 +8,9 @@ trigger:
 
 
 stages:
- - stage: Build_Image_os
+ - stage: Build
    jobs:
-    - job: windows
+    - job: Build
       pool:
         name: 'my_agent_pool'
       steps:
@@ -18,13 +18,7 @@ stages:
         inputs:
           command: 'install'
       - script: echo hello from my agent
- - stage: Build_Application
-   jobs:
-    - job: Build_Application
-      steps:
-        - script: |
-            npm install
-          displayName: 'NPM install'
+        displayName: 'NPM install'
  - stage: Build_AWS_interface
    jobs:
      - job: Build_Aws_serverless
