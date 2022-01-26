@@ -6,10 +6,15 @@
 trigger:
 - master
 
-pool:
-  vmImage: ubuntu-latest
 
 stages:
+ - stage: Build_Image_os
+   jobs:
+    - job: Linux
+      pool:
+        vmImage: 'ubuntu-latest'
+      steps:
+      - script: echo hello from Linux
  - stage: Build_Agent
    jobs:
     - job: Build_Agent
