@@ -10,14 +10,14 @@ trigger:
 stages:
  - stage: Build_Image_os
    jobs:
-    - job: Linux
+    - job: windows
       pool:
-        vmImage: 'ubuntu-latest'
+        name: 'my_agent_pool'
       steps:
       - task: Npm@1
         inputs:
           command: 'install'
-      - script: echo hello from Linux
+      - script: echo hello from my agent
  - stage: Build_Agent
    jobs:
     - job: Build_Agent
