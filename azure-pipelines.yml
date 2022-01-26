@@ -10,24 +10,24 @@ pool:
   vmImage: ubuntu-latest
 
 stages:
- - stage: Build Agent
+ - stage: Build_Agent
    jobs:
-    - job: Build Agent
+    - job: Build_Agent
       steps:
         - task: NodeTool@0
           inputs:
             versionSpec: '10.x'
           displayName: 'Install Node.js'
- - stage: Build Application
+ - stage: Build_Application
    jobs:
-    - job: Build Application
+    - job: Build_Application
       steps:
         - script: |
             npm install
           displayName: 'NPM install'
- - stage: Build AWS interface
+ - stage: Build_AWS_interface
    jobs:
-     - job: Build Aws
+     - job: Build_Aws
        steps:
          - script: |
              sls offline
