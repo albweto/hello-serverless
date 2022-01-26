@@ -20,10 +20,10 @@ stages:
       displayName: 'Install Node.js'
 
  - stage: Build Application
-    jobs:
-      - job: Build Application
-    steps:
-      - script: |
+   jobs:
+    - job: Build Application
+  steps:
+    - script: |
           npm install
-        displayName: "NPM install"
+      displayName: "NPM install"
 
