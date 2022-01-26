@@ -6,13 +6,14 @@
 trigger:
 - master
 
+pool:
+  name: 'my_agent_pool'
+
 
 stages:
  - stage: Build
    jobs:
     - job: Build
-      pool:
-        name: 'my_agent_pool'
       steps:
       - task: Npm@1
         inputs:
