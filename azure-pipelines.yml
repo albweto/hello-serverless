@@ -10,7 +10,7 @@ pool:
   vmImage: ubuntu-latest
 
 stages:
-x
+
  - stage: Build Agent
    jobs:
     - job: Build Agent
