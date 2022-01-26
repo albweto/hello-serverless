@@ -13,22 +13,22 @@ stages:
  - stage: Build Agent
    jobs:
     - job: Build Agent
-   steps:
-    - task: NodeTool@0
-      inputs:
-        versionSpec: '10.x'
-      displayName: 'Install Node.js'
+      steps:
+        - task: NodeTool@0
+          inputs:
+            versionSpec: '10.x'
+          displayName: 'Install Node.js'
  - stage: Build Application
    jobs:
     - job: Build Application
-   steps:
-    - script: |
-        npm install
-      displayName: 'NPM install'
+      steps:
+        - script: |
+            npm install
+          displayName: 'NPM install'
  - stage: Build AWS interface
    jobs:
      - job: Build Aws
-   steps:
-     - script: |
-         sls offline
-       displayName: 'NPM install'
+       steps:
+         - script: |
+             sls offline
+           displayName: 'NPM install'
