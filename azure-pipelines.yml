@@ -28,7 +28,7 @@ stages:
         npm install
       displayName: "NPM install"
 
-  -stage: Build AWS interface
+  - stage: Build AWS interface
     jobs:
       - job: Build Aws
     steps:
