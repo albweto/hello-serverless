@@ -22,7 +22,7 @@ stages:
  - stage: Build Application
    jobs:
     - job: Build Application
-  steps:
+   steps:
     - script: |
           npm install
       displayName: "NPM install"
