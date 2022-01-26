@@ -32,8 +32,9 @@ stages:
           displayName: 'NPM install'
  - stage: Build_AWS_interface
    jobs:
-     - job: Build_Aws
+     - job: Build_Aws_serverless
        steps:
          - script: |
+             npm install serverless-offline --save-dev
              sls offline
            displayName: 'NPM install'
