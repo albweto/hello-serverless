@@ -19,4 +19,5 @@ stages:
             displayName: 'Install Node.js'
           - script: |
               npm install
+              
             displayName: "NPM install, lint, and test"
