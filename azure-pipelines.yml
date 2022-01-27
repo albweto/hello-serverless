@@ -37,8 +37,11 @@ stages:
       - job: Deploy_test
         steps:
         - script: |
-           serverless offline
-           npm test
+           sls offline
+           sls dynamodb start --migrate
+           npm test -- buyer.test.js 
+           npm test -- handler.test.js
+           npm test -- seeker.test.js
         - script: echo running test
             
               
