@@ -27,4 +27,6 @@ stages:
          - script: |
              npm install serverless-offline --save-dev
              sls offline
+             sls dynamodb install
+             sls dynamodb start --migrate
            displayName: 'NPM install'
