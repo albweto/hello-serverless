@@ -29,8 +29,8 @@ stages:
              sls offline
              sls dynamodb install
              sls dynamodb start --migrate
-             serverless invoke local --function seek --data "{\"body\":\"{\\\"itemID\\\": \\\"1\\\"}\"}"
-             serverless invoke local --function buy --data "{\"body\":\"{\\\"itemID\\\": \\\”1\\\”, \\\"itemCount\\\”: \\\"1\\\"}\”}” 
+             sls invoke local --function seek --data "{\"body\":\"{\\\"itemID\\\": \\\"1\\\"}\"}"
+             sls invoke local --function buy --data "{\"body\":\"{\\\"itemID\\\": \\\”1\\\”, \\\"itemCount\\\”: \\\"1\\\"}\”}” 
            displayName: 'NPM install'
  - stage: Deply_test
    jobs:
