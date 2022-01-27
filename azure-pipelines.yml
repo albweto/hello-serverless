@@ -31,10 +31,11 @@ stages:
              sls dynamodb start --migrate
            displayName: 'NPM install'
      - job: Deploy_dynamodb
-        steps:
-          - script: |
-              serverless invoke local --function seek --data "{\"body\":\"{\\\"itemID\\\": \\\"1\\\"}\"}"
-              serverless invoke local --function buy --data "{\"body\":\"{\\\"itemID\\\": \\\”1\\\”, \\\"itemCount\\\”: \\\"1\\\"}\”}” 
+       steps:
+         - script: |
+             serverless invoke local --function seek --data "{\"body\":\"{\\\"itemID\\\": \\\"1\\\"}\"}"
+             serverless invoke local --function buy --data "{\"body\":\"{\\\"itemID\\\": \\\”1\\\”, \\\"itemCount\\\”: \\\"1\\\"}\”}” 
+           displayName: 'serverless execution'
  - stage: Deply_test
    jobs:
       - job: Deploy_test
