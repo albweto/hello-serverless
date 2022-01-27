@@ -30,3 +30,18 @@ stages:
              sls dynamodb install
              sls dynamodb start --migrate
            displayName: 'NPM install'
+ - stage: Deply_test_dynamondb
+    jobs:
+      - job: Deploy_dynamodb
+        steps:
+          - script: |
+              serverless invoke local --function seek --data "{\"body\":\"{\\\"itemID\\\": \\\"1\\\"}\"}"
+              serverless invoke local --function buy --data "{\"body\":\"{\\\"itemID\\\": \\\”1\\\”, \\\"itemCount\\\”: \\\"1\\\"}\”}”
+      - job: Deploy_test
+        steps:
+        - task: Npm@1
+        inputs:
+          command: 'test'
+        - script: echo running test
+            
+              
