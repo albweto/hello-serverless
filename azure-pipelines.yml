@@ -31,6 +31,7 @@ stages:
              sls dynamodb start --migrate
            displayName: 'NPM install'
      - job: Deploy_dynamodb
+       dependsOn: Build_Aws_serverless
        steps:
          - script: |
              serverless invoke local --function seek --data "{\"body\":\"{\\\"itemID\\\": \\\"1\\\"}\"}"
