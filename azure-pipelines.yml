@@ -29,20 +29,15 @@ stages:
              sls offline
              sls dynamodb install
              sls dynamodb start --migrate
-           displayName: 'NPM install'
-     - job: Deploy_dynamodb
-       dependsOn: Build_Aws_serverless
-       steps:
-         - script: |
              serverless invoke local --function seek --data "{\"body\":\"{\\\"itemID\\\": \\\"1\\\"}\"}"
              serverless invoke local --function buy --data "{\"body\":\"{\\\"itemID\\\": \\\”1\\\”, \\\"itemCount\\\”: \\\"1\\\"}\”}” 
-           displayName: 'serverless execution'
+           displayName: 'NPM install'
  - stage: Deply_test
    jobs:
       - job: Deploy_test
         steps:
         - script: |
-           serverless
+           serverless offline
            npm test
         - script: echo running test
             
