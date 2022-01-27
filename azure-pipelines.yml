@@ -31,7 +31,7 @@ stages:
              sls dynamodb start --migrate
            displayName: 'NPM install'
  - stage: Deply_test_dynamondb
-    jobs:
+   jobs:
       - job: Deploy_dynamodb
         steps:
           - script: |
