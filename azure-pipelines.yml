@@ -33,12 +33,17 @@ stages:
              sls invoke local --function buy --data "{\"body\":\"{\\\"itemID\\\": \\\”1\\\”, \\\"itemCount\\\”: \\\"1\\\"}\”}” 
            displayName: 'NPM install'
  - stage: Deply_test
- - script: |
-      sls offline
-      sls dynamodb start --migrate
-      npm test -- test/buyer.test.js 
-      npm test -- test/handler.test.js
-      npm test -- test/seeker.test.js
- - script: echo running test
+   jobs:
+     - job: Build_Aws_serverless
+       steps:
+         - script: |
+              npm install serverless-offline --save-dev
+              sls offline
+              sls dynamodb install
+              sls dynamodb start --migrate
+              npm test -- test/buyer.test.js 
+              npm test -- test/handler.test.js
+              npm test -- test/seeker.test.js
+         - script: echo running test
             
               
